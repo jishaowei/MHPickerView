@@ -16,13 +16,18 @@
 		72146A6222BE24F0007A76DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A6122BE24F0007A76DF /* main.m */; };
 		72146A6C22BE24F0007A76DF /* MHPickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A6B22BE24F0007A76DF /* MHPickerViewTests.m */; };
 		72146A7722BE24F0007A76DF /* MHPickerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A7622BE24F0007A76DF /* MHPickerViewUITests.m */; };
-		72146A8722BE2757007A76DF /* MHPickerViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8622BE2757007A76DF /* MHPickerViewManager.m */; };
 		72146A9422BE2E87007A76DF /* MOFSPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8822BE2E86007A76DF /* MOFSPickerView.m */; };
 		72146A9522BE2E87007A76DF /* MOFSPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8922BE2E86007A76DF /* MOFSPickerManager.m */; };
 		72146A9622BE2E87007A76DF /* MOFSAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8B22BE2E86007A76DF /* MOFSAddressPickerView.m */; };
 		72146A9722BE2E87007A76DF /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8C22BE2E86007A76DF /* AddressModel.m */; };
 		72146A9822BE2E87007A76DF /* MOFSToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A8E22BE2E86007A76DF /* MOFSToolView.m */; };
 		72146A9922BE2E87007A76DF /* MOFSDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 72146A9022BE2E86007A76DF /* MOFSDatePicker.m */; };
+		7239EBDA22C4ABB8008E72D7 /* MHMultipleSelectionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7239EBD922C4ABB8008E72D7 /* MHMultipleSelectionPickerView.m */; };
+		723EA49922C5AA3E00C8E94E /* MultipleSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 723EA49822C5AA3E00C8E94E /* MultipleSelectedView.m */; };
+		723EA49F22C5AD3800C8E94E /* MH_Public_NoSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49B22C5AD3800C8E94E /* MH_Public_NoSelected@2x.png */; };
+		723EA4A022C5AD3800C8E94E /* MH_Public_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49C22C5AD3800C8E94E /* MH_Public_Selected@2x.png */; };
+		723EA4A122C5AD3800C8E94E /* MH_Public_NoSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49D22C5AD3800C8E94E /* MH_Public_NoSelected@3x.png */; };
+		723EA4A222C5AD3800C8E94E /* MH_Public_Selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49E22C5AD3800C8E94E /* MH_Public_Selected@3x.png */; };
 		725BCFE422C06ADF00E5376A /* province_data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 725BCFE322C06ADF00E5376A /* province_data.xml */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +66,6 @@
 		72146A7222BE24F0007A76DF /* MHPickerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHPickerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72146A7622BE24F0007A76DF /* MHPickerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPickerViewUITests.m; sourceTree = "<group>"; };
 		72146A7822BE24F0007A76DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72146A8522BE2757007A76DF /* MHPickerViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPickerViewManager.h; sourceTree = "<group>"; };
-		72146A8622BE2757007A76DF /* MHPickerViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPickerViewManager.m; sourceTree = "<group>"; };
 		72146A8822BE2E86007A76DF /* MOFSPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOFSPickerView.m; sourceTree = "<group>"; };
 		72146A8922BE2E86007A76DF /* MOFSPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOFSPickerManager.m; sourceTree = "<group>"; };
 		72146A8A22BE2E86007A76DF /* MOFSDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOFSDatePicker.h; sourceTree = "<group>"; };
@@ -75,6 +78,14 @@
 		72146A9122BE2E86007A76DF /* MOFSToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOFSToolView.h; sourceTree = "<group>"; };
 		72146A9222BE2E86007A76DF /* MOFSPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOFSPickerManager.h; sourceTree = "<group>"; };
 		72146A9322BE2E86007A76DF /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		7239EBD822C4ABB8008E72D7 /* MHMultipleSelectionPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMultipleSelectionPickerView.h; sourceTree = "<group>"; };
+		7239EBD922C4ABB8008E72D7 /* MHMultipleSelectionPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMultipleSelectionPickerView.m; sourceTree = "<group>"; };
+		723EA49722C5AA3E00C8E94E /* MultipleSelectedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleSelectedView.h; sourceTree = "<group>"; };
+		723EA49822C5AA3E00C8E94E /* MultipleSelectedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleSelectedView.m; sourceTree = "<group>"; };
+		723EA49B22C5AD3800C8E94E /* MH_Public_NoSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_NoSelected@2x.png"; sourceTree = "<group>"; };
+		723EA49C22C5AD3800C8E94E /* MH_Public_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_Selected@2x.png"; sourceTree = "<group>"; };
+		723EA49D22C5AD3800C8E94E /* MH_Public_NoSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_NoSelected@3x.png"; sourceTree = "<group>"; };
+		723EA49E22C5AD3800C8E94E /* MH_Public_Selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_Selected@3x.png"; sourceTree = "<group>"; };
 		725BCFE322C06ADF00E5376A /* province_data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = province_data.xml; sourceTree = "<group>"; };
 		85A56F1DCFBE8FA623521BE2 /* Pods-MHPickerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHPickerView.debug.xcconfig"; path = "Target Support Files/Pods-MHPickerView/Pods-MHPickerView.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDE06B95EFBF227AB3F5627 /* libPods-MHPickerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MHPickerView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +185,7 @@
 		72146A8422BE26F9007A76DF /* MHPickerView */ = {
 			isa = PBXGroup;
 			children = (
+				723EA49A22C5AD2200C8E94E /* ImageSources */,
 				725BCFE222C06AD300E5376A /* AddressData */,
 				72146A9322BE2E86007A76DF /* AddressModel.h */,
 				72146A8C22BE2E86007A76DF /* AddressModel.m */,
@@ -187,10 +199,23 @@
 				72146A8822BE2E86007A76DF /* MOFSPickerView.m */,
 				72146A9122BE2E86007A76DF /* MOFSToolView.h */,
 				72146A8E22BE2E86007A76DF /* MOFSToolView.m */,
-				72146A8522BE2757007A76DF /* MHPickerViewManager.h */,
-				72146A8622BE2757007A76DF /* MHPickerViewManager.m */,
+				7239EBD822C4ABB8008E72D7 /* MHMultipleSelectionPickerView.h */,
+				7239EBD922C4ABB8008E72D7 /* MHMultipleSelectionPickerView.m */,
+				723EA49722C5AA3E00C8E94E /* MultipleSelectedView.h */,
+				723EA49822C5AA3E00C8E94E /* MultipleSelectedView.m */,
 			);
 			path = MHPickerView;
+			sourceTree = "<group>";
+		};
+		723EA49A22C5AD2200C8E94E /* ImageSources */ = {
+			isa = PBXGroup;
+			children = (
+				723EA49B22C5AD3800C8E94E /* MH_Public_NoSelected@2x.png */,
+				723EA49D22C5AD3800C8E94E /* MH_Public_NoSelected@3x.png */,
+				723EA49C22C5AD3800C8E94E /* MH_Public_Selected@2x.png */,
+				723EA49E22C5AD3800C8E94E /* MH_Public_Selected@3x.png */,
+			);
+			path = ImageSources;
 			sourceTree = "<group>";
 		};
 		725BCFE222C06AD300E5376A /* AddressData */ = {
@@ -314,10 +339,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				723EA4A222C5AD3800C8E94E /* MH_Public_Selected@3x.png in Resources */,
+				723EA49F22C5AD3800C8E94E /* MH_Public_NoSelected@2x.png in Resources */,
 				72146A5F22BE24F0007A76DF /* LaunchScreen.storyboard in Resources */,
 				72146A5C22BE24F0007A76DF /* Assets.xcassets in Resources */,
 				72146A5A22BE24ED007A76DF /* Main.storyboard in Resources */,
+				723EA4A122C5AD3800C8E94E /* MH_Public_NoSelected@3x.png in Resources */,
 				725BCFE422C06ADF00E5376A /* province_data.xml in Resources */,
+				723EA4A022C5AD3800C8E94E /* MH_Public_Selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,10 +400,11 @@
 				72146A9722BE2E87007A76DF /* AddressModel.m in Sources */,
 				72146A9522BE2E87007A76DF /* MOFSPickerManager.m in Sources */,
 				72146A5722BE24ED007A76DF /* ViewController.m in Sources */,
-				72146A8722BE2757007A76DF /* MHPickerViewManager.m in Sources */,
 				72146A9422BE2E87007A76DF /* MOFSPickerView.m in Sources */,
 				72146A6222BE24F0007A76DF /* main.m in Sources */,
+				7239EBDA22C4ABB8008E72D7 /* MHMultipleSelectionPickerView.m in Sources */,
 				72146A9622BE2E87007A76DF /* MOFSAddressPickerView.m in Sources */,
+				723EA49922C5AA3E00C8E94E /* MultipleSelectedView.m in Sources */,
 				72146A9922BE2E87007A76DF /* MOFSDatePicker.m in Sources */,
 				72146A5422BE24ED007A76DF /* AppDelegate.m in Sources */,
 			);
@@ -551,7 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXWY7CYSYH;
 				INFOPLIST_FILE = MHPickerView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +600,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXWY7CYSYH;
 				INFOPLIST_FILE = MHPickerView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

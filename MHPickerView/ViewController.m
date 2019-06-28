@@ -29,7 +29,7 @@
 
 - (IBAction)commendBtnAction:(id)sender {
     NSMutableArray * containArr = [NSMutableArray array];
-    for (NSInteger i = 0; i < 100; i ++) {
+    for (NSInteger i = 0; i < 3; i ++) {
         [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
     [[MOFSPickerManager shareManger]showPickerViewWithDataArray:containArr title:@"biaoti" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nonnull string) {
@@ -47,6 +47,22 @@
         
     }];
     
+}
+
+- (IBAction)multipleAction:(id)sender {
+    
+    NSMutableArray * containArr = [NSMutableArray array];
+    for (NSInteger i = 0; i < 99; i ++) {
+        [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
+    }
+    NSInteger tag = [[MOFSPickerManager shareManger]automagicTag];
+    [[MOFSPickerManager shareManger]showMultipleSelectedPickerViewWithDataArray:containArr tag:tag title:@"duoxuan" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSArray * _Nullable containArray) {
+        NSLog(@"%@",containArray);
+    } cancelBlock:^{
+        
+    }];
+
+
 }
 
 @end

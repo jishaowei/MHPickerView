@@ -10,6 +10,7 @@
 #import "MOFSDatePicker.h"
 #import "MOFSPickerView.h"
 #import "MOFSAddressPickerView.h"
+#import "MHMultipleSelectionPickerView.h"
 
 typedef void (^DatePickerCommitBlock)(NSDate * _Nonnull date);
 typedef void (^DatePickerCancelBlock)(void);
@@ -22,11 +23,20 @@ typedef void (^PickerViewCancelBlock)(void);
 
 + (MOFSPickerManager *_Nonnull)shareManger;
 
+/**
+ 自动生成tag，避免自定义tag重复，从10001开始
+
+ @return tag值
+ */
+- (NSInteger)automagicTag;
+
 @property (nonatomic, strong) MOFSDatePicker * _Nonnull datePicker;
 
 @property (nonatomic, strong) MOFSPickerView * _Nonnull pickView;
 
 @property (nonatomic, strong) MOFSAddressPickerView * _Nonnull addressPicker;
+
+@property (nonatomic, strong) MHMultipleSelectionPickerView * _Nonnull multipleSelectedPickView;
 
 // ================================DatePicker===================================//
 
@@ -96,6 +106,33 @@ typedef void (^PickerViewCancelBlock)(void);
 - (void)showPickerViewWithCustomDataArray:(NSArray *_Nullable)array keyMapper:(NSString *_Nullable)keyMapper title:(NSString *_Nullable)title cancelTitle:(NSString *_Nullable)cancelTitle commitTitle:(NSString *_Nullable)commitTitle commitBlock:(PickerViewCustomCommitBlock _Nullable)commitBlock cancelBlock:(PickerViewCancelBlock _Nullable )cancelBlock;
 
 - (void)showPickerViewWithCustomDataArray:(NSArray *_Nullable)array keyMapper:(NSString *_Nullable)keyMapper tag:(NSInteger)tag title:(NSString *_Nullable)title cancelTitle:(NSString *_Nullable)cancelTitle commitTitle:(NSString *_Nullable)commitTitle commitBlock:(PickerViewCustomCommitBlock _Nullable)commitBlock cancelBlock:(PickerViewCancelBlock _Nullable )cancelBlock;
+
+//===============================MHMultipleSelectionPickerView===================================//
+
+/**
+ 多选弹框
+
+ @param array 数据数组
+ @param title 弹框标题
+ @param cancelTitle 取消操作标题
+ @param commitTitle 确认操作标题
+ @param commitBlock 确认操作block
+ @param cancelBlock 取消操作block
+ */
+- (void)showMultipleSelectedPickerViewWithDataArray:(NSArray<NSString *> *_Nullable)array title:(NSString *_Nullable)title cancelTitle:(NSString *_Nullable)cancelTitle commitTitle:(NSString *_Nullable)commitTitle commitBlock:(void(^_Nullable)(NSArray * _Nullable containArray))commitBlock cancelBlock:(PickerViewCancelBlock _Nullable )cancelBlock;
+
+/**
+ 多选弹框
+ 
+ @param array 数据数组
+ @param tag 标签
+ @param title 弹框标题
+ @param cancelTitle 取消操作标题
+ @param commitTitle 确认操作标题
+ @param commitBlock 确认操作block
+ @param cancelBlock 取消操作block
+ */
+- (void)showMultipleSelectedPickerViewWithDataArray:(NSArray<NSString *> *_Nullable)array tag:(NSInteger)tag title:(NSString *_Nullable)title cancelTitle:(NSString *_Nullable)cancelTitle commitTitle:(NSString *_Nullable)commitTitle commitBlock:(void(^_Nullable)(NSArray * _Nullable containArray))commitBlock cancelBlock:(PickerViewCancelBlock _Nullable )cancelBlock;
 
 //===============================addressPicker===================================//
 
