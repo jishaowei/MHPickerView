@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "MHPickerView"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.summary      = "广西心理通用picker"
   spec.homepage     = "https://github.com/jishaowei"
@@ -10,6 +10,7 @@ Pod::Spec.new do |spec|
   spec.source_files = "MHPickerView/MHPickerView/*.{h,m}"
   spec.requires_arc = true
   spec.platform     = :ios, "9.0"
-  spec.resource     = "MHPickerView/MHPickerView/AddressData/*.{xml}"
+  spec.resource     = "MHPickerView/MHPickerView/AddressData/*.{xml}","MHPickerView/MHPickerView/ImageSources/*.{png}"
+  spec.dependency "Masonry"
 
 end
