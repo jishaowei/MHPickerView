@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MHPickerView/MOFSPickerManager.h"
+#import "MHPickerView/MH_JSW_PickerManager.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
 }
 
 - (IBAction)timeBtnAction:(id)sender {
-    [[MOFSPickerManager shareManger]showDatePickerWithTag:1 datePickerMode:UIDatePickerModeDate commitBlock:^(NSDate * _Nonnull date) {
+    [[MH_JSW_PickerManager shareManger]showDatePickerWithTag:1 datePickerMode:UIDatePickerModeDate commitBlock:^(NSDate * _Nonnull date) {
         NSLog(@"%@",date);
     } cancelBlock:^{
         NSLog(@"456");
@@ -32,7 +32,7 @@
     for (NSInteger i = 0; i < 3; i ++) {
         [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
-    [[MOFSPickerManager shareManger]showPickerViewWithDataArray:containArr title:@"biaoti" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nonnull string) {
+    [[MH_JSW_PickerManager shareManger]showPickerViewWithDataArray:containArr title:@"biaoti" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nonnull string) {
         
     } cancelBlock:^{
         
@@ -41,7 +41,7 @@
 
 - (IBAction)addressBtnAction:(id)sender {
     
-    [[MOFSPickerManager shareManger]showMOFSAddressPickerWithTitle:@"dizhi" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nullable address, NSString * _Nullable zipcode) {
+    [[MH_JSW_PickerManager shareManger]showMOFSAddressPickerWithTitle:@"dizhi" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nullable address, NSString * _Nullable zipcode) {
         NSLog(@"%@=====%@",address,zipcode);
     } cancelBlock:^{
         
@@ -55,8 +55,8 @@
     for (NSInteger i = 0; i < 99; i ++) {
         [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
-    NSInteger tag = [[MOFSPickerManager shareManger]automagicTag];
-    [[MOFSPickerManager shareManger]showMultipleSelectedPickerViewWithDataArray:containArr tag:tag title:@"duoxuan" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSArray * _Nullable containArray) {
+    NSInteger tag = [[MH_JSW_PickerManager shareManger]automagicTag];
+    [[MH_JSW_PickerManager shareManger]showMultipleSelectedPickerViewWithDataArray:containArr tag:tag title:@"duoxuan" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSArray * _Nullable containArray) {
         NSLog(@"%@",containArray);
     } cancelBlock:^{
         

@@ -1,14 +1,14 @@
 //
-//  AddressModel.m
-//  MOFSPickerManager
+//  MH_JSW_AddressModel.m
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/31.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "AddressModel.h"
+#import "MH_JSW_AddressModel.h"
 
-@implementation AddressModel
+@implementation MH_JSW_AddressModel
 
 - (NSMutableArray *)list {
     if (!_list) {
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation CityModel
+@implementation MH_JSW_CityModel
 
 - (NSMutableArray *)list {
     if (!_list) {
@@ -52,7 +52,7 @@
 
 @end
 
-@implementation DistrictModel
+@implementation MH_JSW_DistrictModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];

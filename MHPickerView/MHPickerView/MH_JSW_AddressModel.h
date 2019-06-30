@@ -1,37 +1,40 @@
 //
-//  AddressModel.h
-//  MOFSPickerManager
+//  MH_JSW_AddressModel.h
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/31.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@class CityModel,DistrictModel,GDataXMLElement;
-@interface AddressModel : NSObject
+NS_ASSUME_NONNULL_BEGIN
+
+@class MH_JSW_CityModel,MH_JSW_DistrictModel,GDataXMLElement;
+
+@interface MH_JSW_AddressModel : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *zipcode;
 @property (nonatomic, strong) NSString *index;
-@property (nonatomic, strong) NSMutableArray<CityModel *> *list;
+@property (nonatomic, strong) NSMutableArray<MH_JSW_CityModel *> *list;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
-@interface CityModel : NSObject
+@interface MH_JSW_CityModel : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *zipcode;
 @property (nonatomic, strong) NSString *index;
-@property (nonatomic, strong) NSMutableArray<DistrictModel *> *list;
+@property (nonatomic, strong) NSMutableArray<MH_JSW_DistrictModel *> *list;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
-@interface DistrictModel : NSObject
+@interface MH_JSW_DistrictModel : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *zipcode;
@@ -41,3 +44,5 @@
 
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -1,25 +1,24 @@
 //
-//  MOFSDatePicker.m
-//  MOFSPickerManager
+//  MH_JSW_DatePicker.m
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/26.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MOFSDatePicker.h"
+#import "MH_JSW_DatePicker.h"
 
 #define UISCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define UISCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface MOFSDatePicker()
+@interface MH_JSW_DatePicker()
 
 @property (nonatomic, strong) NSMutableDictionary *recordDic;
 @property (nonatomic, strong) UIView *bgView;
 
 @end
 
-
-@implementation MOFSDatePicker
+@implementation MH_JSW_DatePicker
 
 - (NSMutableDictionary *)recordDic {
     if (!_recordDic) {
@@ -52,7 +51,7 @@
 }
 
 - (void)initToolBar {
-    self.toolBar = [[MOFSToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
+    self.toolBar = [[MH_JSW_ToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
     self.toolBar.backgroundColor = [UIColor whiteColor];
 }
 
@@ -71,7 +70,7 @@
 
 - (void)showMOFSDatePickerViewWithFirstDate:(NSDate *)date commit:(CommitBlock)commitBlock cancel:(CancelBlock)cancelBlock
 {
-   
+    
     self.date = date;
     
     [self showWithAnimation];
@@ -85,7 +84,7 @@
     };
     
     self.toolBar.commitBlock = ^{
-           
+        
         [weakSelf hiddenWithAnimation];
         if (commitBlock) {
             commitBlock(weakSelf.date);
@@ -119,7 +118,7 @@
     };
     
     self.toolBar.commitBlock = ^{
-       
+        
         NSDictionary *dic = [NSDictionary dictionaryWithObject:weakSelf.date forKey:showtagStr];
         [weakSelf.recordDic setValue:dic forKey:showtagStr];
         
@@ -128,7 +127,7 @@
             commitBlock(weakSelf.date);
         }
     };
-
+    
 }
 
 - (void)showWithAnimation {
@@ -174,6 +173,5 @@
     [self.bgView removeFromSuperview];
     [self.containerView removeFromSuperview];
 }
-
 
 @end

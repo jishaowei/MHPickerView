@@ -1,14 +1,16 @@
 //
-//  MOFSAddressPickerView.h
-//  MOFSPickerManager
+//  MH_JSW_AddressPickerView.h
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/31.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MOFSToolView.h"
-#import "AddressModel.h"
+#import "MH_JSW_ToolView.h"
+#import "MH_JSW_AddressModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, SearchType) {
     SearchTypeAddress = 0,
@@ -17,12 +19,12 @@ typedef NS_ENUM(NSInteger, SearchType) {
     SearchTypeZipcodeIndex = 3,
 };
 
-@interface MOFSAddressPickerView : UIPickerView
+@interface MH_JSW_AddressPickerView : UIPickerView
 
-@property (nullable, nonatomic, readonly) NSMutableArray<AddressModel *> *addressDataArray;
+@property (nullable, nonatomic, readonly) NSMutableArray<MH_JSW_AddressModel *> *addressDataArray;
 
 @property (nonatomic, assign) NSInteger showTag;
-@property (nonatomic, strong) MOFSToolView *   _Nullable toolBar;
+@property (nonatomic, strong) MH_JSW_ToolView *   _Nullable toolBar;
 @property (nonatomic, strong) UIView * _Nullable containerView;
 @property (nonatomic, strong) void (^ _Nullable containerViewClickedBlock)(void);
 @property (nonatomic, assign) NSInteger numberOfSection;
@@ -34,3 +36,5 @@ typedef NS_ENUM(NSInteger, SearchType) {
 - (void)searchType:(SearchType)searchType key:(NSString *_Nullable)key block:(void(^_Nullable)(NSString * _Nullable result))block;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -1,20 +1,22 @@
 //
-//  MOFSDatePicker.h
-//  MOFSPickerManager
+//  MH_JSW_DatePicker.h
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/26.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MOFSToolView.h"
+#import "MH_JSW_ToolView.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^CommitBlock)(NSDate *date);
 typedef void (^CancelBlock)(void);
 
-@interface MOFSDatePicker : UIDatePicker
+@interface MH_JSW_DatePicker : UIDatePicker
 
-@property (nonatomic, strong) MOFSToolView *toolBar;
+@property (nonatomic, strong) MH_JSW_ToolView *toolBar;
 @property (nonatomic, strong) UIView *containerView;
 
 @property (nonatomic, strong) void (^containerViewClickedBlock)(void);
@@ -24,3 +26,5 @@ typedef void (^CancelBlock)(void);
 - (void)showMOFSDatePickerViewWithTag:(NSInteger)tag firstDate:(NSDate *)date commit:(CommitBlock)commitBlock cancel:(CancelBlock)cancelBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

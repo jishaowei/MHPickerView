@@ -1,16 +1,18 @@
 //
-//  MOFSPickerManager.h
-//  MOFSPickerManager
+//  MH_JSW_PickerManager.h
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/26.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "MOFSDatePicker.h"
-#import "MOFSPickerView.h"
-#import "MOFSAddressPickerView.h"
+#import "MH_JSW_DatePicker.h"
+#import "MH_JSW_PickerView.h"
+#import "MH_JSW_AddressPickerView.h"
 #import "MHMultipleSelectionPickerView.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^DatePickerCommitBlock)(NSDate * _Nonnull date);
 typedef void (^DatePickerCancelBlock)(void);
@@ -19,22 +21,22 @@ typedef void (^PickerViewCommitBlock)(NSString * _Nonnull string);
 typedef void (^PickerViewCustomCommitBlock)(id  _Nonnull model);
 typedef void (^PickerViewCancelBlock)(void);
 
-@interface MOFSPickerManager : NSObject
+@interface MH_JSW_PickerManager : NSObject
 
-+ (MOFSPickerManager *_Nonnull)shareManger;
++ (MH_JSW_PickerManager *_Nonnull)shareManger;
 
 /**
  自动生成tag，避免自定义tag重复，从10001开始
-
+ 
  @return tag值
  */
 - (NSInteger)automagicTag;
 
-@property (nonatomic, strong) MOFSDatePicker * _Nonnull datePicker;
+@property (nonatomic, strong) MH_JSW_DatePicker * _Nonnull datePicker;
 
-@property (nonatomic, strong) MOFSPickerView * _Nonnull pickView;
+@property (nonatomic, strong) MH_JSW_PickerView * _Nonnull pickView;
 
-@property (nonatomic, strong) MOFSAddressPickerView * _Nonnull addressPicker;
+@property (nonatomic, strong) MH_JSW_AddressPickerView * _Nonnull addressPicker;
 
 @property (nonatomic, strong) MHMultipleSelectionPickerView * _Nonnull multipleSelectedPickView;
 
@@ -111,7 +113,7 @@ typedef void (^PickerViewCancelBlock)(void);
 
 /**
  多选弹框
-
+ 
  @param array 数据数组
  @param title 弹框标题
  @param cancelTitle 取消操作标题
@@ -205,4 +207,7 @@ typedef void (^PickerViewCancelBlock)(void);
  */
 - (void)searchIndexByZipCode:(NSString *_Nullable)zipcode block:(void(^_Nullable)(NSString * _Nullable address))block;
 
+
 @end
+
+NS_ASSUME_NONNULL_END

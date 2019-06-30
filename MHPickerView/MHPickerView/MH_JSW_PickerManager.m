@@ -1,17 +1,17 @@
 //
-//  MOFSPickerManager.m
-//  MOFSPickerManager
+//  MH_JSW_PickerManager.m
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/26.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MOFSPickerManager.h"
+#import "MH_JSW_PickerManager.h"
 
-@implementation MOFSPickerManager
+@implementation MH_JSW_PickerManager
 
-+ (MOFSPickerManager *)shareManger {
-    static MOFSPickerManager *manager = nil;
++ (MH_JSW_PickerManager *)shareManger {
+    static MH_JSW_PickerManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [self new];
@@ -26,23 +26,23 @@
     return mytag;
 }
 
-- (MOFSDatePicker *)datePicker {
+- (MH_JSW_DatePicker *)datePicker {
     if (!_datePicker) {
-        _datePicker = [MOFSDatePicker new];
+        _datePicker = [MH_JSW_DatePicker new];
     }
     return _datePicker;
 }
 
-- (MOFSPickerView *)pickView {
+- (MH_JSW_PickerView *)pickView {
     if (!_pickView) {
-        _pickView = [MOFSPickerView new];
+        _pickView = [MH_JSW_PickerView new];
     }
     return _pickView;
 }
 
-- (MOFSAddressPickerView *)addressPicker {
+- (MH_JSW_AddressPickerView *)addressPicker {
     if (!_addressPicker) {
-        _addressPicker = [MOFSAddressPickerView new];
+        _addressPicker = [MH_JSW_AddressPickerView new];
     }
     return _addressPicker;
 }
@@ -295,7 +295,7 @@
             cancelBlock();
         }
     }];
-
+    
     if (address == nil || [address isEqualToString:@""]) {
         return;
     }

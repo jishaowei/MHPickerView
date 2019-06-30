@@ -1,22 +1,22 @@
 //
-//  MOFSAddressPickerView.m
-//  MOFSPickerManager
+//  MH_JSW_AddressPickerView.m
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/31.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MOFSAddressPickerView.h"
+#import "MH_JSW_AddressPickerView.h"
 
 #define UISCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define UISCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface MOFSAddressPickerView() <UIPickerViewDelegate, UIPickerViewDataSource, NSXMLParserDelegate>
+@interface MH_JSW_AddressPickerView() <UIPickerViewDelegate, UIPickerViewDataSource, NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSXMLParser *parser;
 
 @property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, strong) NSMutableArray<AddressModel *> *dataArr;
+@property (nonatomic, strong) NSMutableArray<MH_JSW_AddressModel *> *dataArr;
 
 @property (nonatomic, assign) NSInteger selectedIndex_province;
 @property (nonatomic, assign) NSInteger selectedIndex_city;
@@ -29,9 +29,7 @@
 
 @end
 
-@implementation MOFSAddressPickerView
-
-#pragma mark - setter
+@implementation MH_JSW_AddressPickerView
 
 - (void)setAttributes:(NSDictionary<NSAttributedStringKey,id> *)attributes {
     _attributes = attributes;
@@ -53,7 +51,7 @@
 
 #pragma mark - getter
 
-- (NSMutableArray<AddressModel *> *)addressDataArray {
+- (NSMutableArray<MH_JSW_AddressModel *> *)addressDataArray {
     return _dataArr;
 }
 
@@ -127,7 +125,7 @@
 }
 
 - (void)initToolBar {
-    self.toolBar = [[MOFSToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
+    self.toolBar = [[MH_JSW_ToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
     self.toolBar.backgroundColor = [UIColor whiteColor];
 }
 
@@ -167,9 +165,9 @@
         if (commitBlock) {
             [weakSelf hiddenWithAnimation];
             if (weakSelf.dataArr.count > 0) {
-               AddressModel *addressModel = weakSelf.dataArr[weakSelf.selectedIndex_province];
-                CityModel *cityModel;
-                DistrictModel *districtModel;
+                MH_JSW_AddressModel *addressModel = weakSelf.dataArr[weakSelf.selectedIndex_province];
+                MH_JSW_CityModel *cityModel;
+                MH_JSW_DistrictModel *districtModel;
                 if (addressModel.list.count > 0) {
                     cityModel = addressModel.list[weakSelf.selectedIndex_city];
                 }
@@ -281,15 +279,15 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"province"]) {
-        AddressModel *model = [[AddressModel alloc] initWithDictionary:attributeDict];
+        MH_JSW_AddressModel *model = [[MH_JSW_AddressModel alloc] initWithDictionary:attributeDict];
         model.index = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataArr.count];
         [self.dataArr addObject:model];
     } else if ([elementName isEqualToString:@"city"]) {
-        CityModel *model = [[CityModel alloc] initWithDictionary:attributeDict];
+        MH_JSW_CityModel *model = [[MH_JSW_CityModel alloc] initWithDictionary:attributeDict];
         model.index = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataArr.lastObject.list.count];
         [self.dataArr.lastObject.list addObject:model];
     } else if ([elementName isEqualToString:@"district"]) {
-        DistrictModel *model = [[DistrictModel alloc] initWithDictionary:attributeDict];
+        MH_JSW_DistrictModel *model = [[MH_JSW_DistrictModel alloc] initWithDictionary:attributeDict];
         model.index = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataArr.lastObject.list.lastObject.list.count];
         [self.dataArr.lastObject.list.lastObject.list addObject: model];
     }
@@ -342,7 +340,7 @@
             dispatch_semaphore_signal(self.semaphore);
         }
     }
-
+    
 }
 
 
@@ -356,17 +354,17 @@
     if (arr.count > 3) {
         return @"error0"; //最多只能输入省市区三个部分
     }
-    AddressModel *addressModel = (AddressModel *)[self searchModelInArr:_dataArr key:arr[0] type:type];
+    MH_JSW_AddressModel *addressModel = (MH_JSW_AddressModel *)[self searchModelInArr:_dataArr key:arr[0] type:type];
     if (addressModel) {
         if (arr.count == 1) { //只输入了省份
             return [addressModel valueForKey:valueName];
         }
-        CityModel *cityModel = (CityModel *)[self searchModelInArr:addressModel.list key:arr[1] type:type];
+        MH_JSW_CityModel *cityModel = (MH_JSW_CityModel *)[self searchModelInArr:addressModel.list key:arr[1] type:type];
         if (cityModel) {
             if (arr.count == 2) { //只输入了省份+城市
                 return [NSString stringWithFormat:@"%@-%@",[addressModel valueForKey:valueName],[cityModel valueForKey:valueName]];
             }
-            DistrictModel *districtModel = (DistrictModel *)[self searchModelInArr:cityModel.list key:arr[2] type:type];
+            MH_JSW_DistrictModel *districtModel = (MH_JSW_DistrictModel *)[self searchModelInArr:cityModel.list key:arr[2] type:type];
             if (districtModel) {
                 return [NSString stringWithFormat:@"%@-%@-%@",[addressModel valueForKey:valueName],[cityModel valueForKey:valueName],[districtModel valueForKey:valueName]];
             } else {
@@ -378,8 +376,8 @@
     } else {
         return @"error1"; //输入省份错误
     }
-
-
+    
+    
 }
 
 - (NSObject *)searchModelInArr:(NSArray *)arr key:(NSString *)key type:(NSString *)type {
@@ -404,12 +402,12 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    AddressModel *addressModel;
+    MH_JSW_AddressModel *addressModel;
     if (self.dataArr.count > 0) {
         addressModel = self.dataArr[self.selectedIndex_province];
     }
-   
-    CityModel *cityModel;
+    
+    MH_JSW_CityModel *cityModel;
     if (addressModel && addressModel.list.count > 0) {
         cityModel = addressModel.list[self.selectedIndex_city];
     }
@@ -426,22 +424,22 @@
     } else {
         return 0;
     }
-
+    
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
     if (component == 0) {
-        AddressModel *addressModel = self.dataArr[row];
+        MH_JSW_AddressModel *addressModel = self.dataArr[row];
         return addressModel.name;
     } else if (component == 1) {
-        AddressModel *addressModel = self.dataArr[self.selectedIndex_province];
-        CityModel *cityModel = addressModel.list[row];
+        MH_JSW_AddressModel *addressModel = self.dataArr[self.selectedIndex_province];
+        MH_JSW_CityModel *cityModel = addressModel.list[row];
         return cityModel.name;
     } else if (component == 2) {
-        AddressModel *addressModel = self.dataArr[self.selectedIndex_province];
-        CityModel *cityModel = addressModel.list[self.selectedIndex_city];
-        DistrictModel *districtModel = cityModel.list[row];
+        MH_JSW_AddressModel *addressModel = self.dataArr[self.selectedIndex_province];
+        MH_JSW_CityModel *cityModel = addressModel.list[self.selectedIndex_city];
+        MH_JSW_DistrictModel *districtModel = cityModel.list[row];
         return districtModel.name;
     } else {
         return nil;
@@ -496,7 +494,7 @@
 }
 
 - (void)dealloc {
-   
+    
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MOFSToolView.h"
+#import "MH_JSW_ToolView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL needTag;
 @property (nonatomic, assign) NSInteger showTag;
-@property (nonatomic, strong) MOFSToolView *toolBar;
+@property (nonatomic, strong) MH_JSW_ToolView *toolBar;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) void (^containerViewClickedBlock)(void);
 @property (nonatomic, strong) NSDictionary<NSAttributedStringKey, id> *attributes;

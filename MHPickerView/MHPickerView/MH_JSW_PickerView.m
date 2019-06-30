@@ -1,18 +1,18 @@
 //
-//  MOFSPickerView.m
-//  MOFSPickerManager
+//  MH_JSW_PickerView.m
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/30.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MOFSPickerView.h"
+#import "MH_JSW_PickerView.h"
 #import <objc/runtime.h>
 
 #define UISCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define UISCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface MOFSPickerView() <UIPickerViewDelegate,UIPickerViewDataSource>
+@interface MH_JSW_PickerView() <UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (nonatomic, strong) NSMutableDictionary *recordDic;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation MOFSPickerView
+@implementation MH_JSW_PickerView
 
 #pragma mark - setter
 
@@ -67,7 +67,7 @@
     self = [super initWithFrame:initialFrame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-       
+        
         self.delegate = self;
         self.dataSource = self;
         
@@ -77,7 +77,7 @@
 }
 
 - (void)initToolBar {
-    self.toolBar = [[MOFSToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
+    self.toolBar = [[MH_JSW_ToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
     self.toolBar.backgroundColor = [UIColor whiteColor];
 }
 
@@ -104,7 +104,7 @@
     {
         if ([self.recordDic.allKeys containsObject:tagStr]) {
             self.selectedRow = [self.recordDic[tagStr] integerValue];
-        } 
+        }
     }
     [self selectRow:self.selectedRow inComponent:0 animated:NO];
     
@@ -260,7 +260,7 @@
 
 @end
 
-@implementation NSString (MOFSPickerView)
+@implementation NSString (MH_JSW_PickerView)
 
 @dynamic mofs_key, mofs_int_key;
 

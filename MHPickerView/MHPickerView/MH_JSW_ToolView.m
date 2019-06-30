@@ -1,12 +1,12 @@
 //
-//  MOFSToolView.m
-//  MOFSPickerManagerDemo
+//  MH_JSW_ToolView.m
+//  MHPickerView
 //
-//  Created by 罗源 on 2018/2/5.
-//  Copyright © 2018年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MOFSToolView.h"
+#import "MH_JSW_ToolView.h"
 
 #define BAR_COLOR [UIColor colorWithRed:102.f/255.f  green:102.f/255.f  blue:102.f/255.f alpha:1]
 #define BAR_COMMIT_COLOR [UIColor colorWithRed:31.f/255.f  green:181.f/255.f  blue:159.f/255.f alpha:1]
@@ -14,7 +14,7 @@
 #define UISCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define UISCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@implementation MOFSToolView
+@implementation MH_JSW_ToolView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -92,7 +92,7 @@
         NSLayoutConstraint *constrant_r = [NSLayoutConstraint constraintWithItem:bottomLineView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.5];
         [self addConstraints:@[constrant_o, constrant_p, constrant_q, constrant_r]];
         
-
+        
     }
     return self;
 }

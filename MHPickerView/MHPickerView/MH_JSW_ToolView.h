@@ -1,14 +1,16 @@
 //
-//  MOFSToolView.h
-//  MOFSPickerManagerDemo
+//  MH_JSW_ToolView.h
+//  MHPickerView
 //
-//  Created by 罗源 on 2018/2/5.
-//  Copyright © 2018年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MOFSToolView : UIView
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MH_JSW_ToolView : UIView
 
 @property (nonatomic, strong) UILabel *cancelBar;
 @property (nonatomic, strong) UILabel *commitBar;
@@ -48,3 +50,5 @@
 @property (nonatomic, strong) void (^commitBlock)(void);
 
 @end
+
+NS_ASSUME_NONNULL_END

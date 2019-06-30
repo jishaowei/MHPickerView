@@ -1,19 +1,21 @@
 //
-//  MOFSPickerView.h
-//  MOFSPickerManager
+//  MH_JSW_PickerView.h
+//  MHPickerView
 //
-//  Created by luoyuan on 16/8/30.
-//  Copyright © 2016年 luoyuan. All rights reserved.
+//  Created by Ji Shaowei on 2019/6/30.
+//  Copyright © 2019 51vision. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MOFSToolView.h"
+#import "MH_JSW_ToolView.h"
 
-@interface MOFSPickerView : UIPickerView
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, assign) BOOL needTag; 
+@interface MH_JSW_PickerView : UIPickerView
+
+@property (nonatomic, assign) BOOL needTag;
 @property (nonatomic, assign) NSInteger showTag;
-@property (nonatomic, strong) MOFSToolView *toolBar;
+@property (nonatomic, strong) MH_JSW_ToolView *toolBar;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) void (^containerViewClickedBlock)(void);
 
@@ -25,10 +27,11 @@
 
 @end
 
-
-@interface NSString (MOFSPickerView)
+@interface NSString (MH_JSW_PickerView)
 
 @property (nonatomic, copy) NSString *mofs_key;
-@property (nonatomic, assign) NSInteger mofs_int_key; 
+@property (nonatomic, assign) NSInteger mofs_int_key;
 
 @end
+
+NS_ASSUME_NONNULL_END

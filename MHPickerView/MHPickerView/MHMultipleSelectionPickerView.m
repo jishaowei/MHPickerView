@@ -78,7 +78,7 @@
 }
 
 - (void)initToolBar {
-    self.toolBar = [[MOFSToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
+    self.toolBar = [[MH_JSW_ToolView alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 52)];
     self.toolBar.backgroundColor = [UIColor whiteColor];
 }
 
