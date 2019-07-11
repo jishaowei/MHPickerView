@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "MHPickerView"
-  spec.version      = "1.0.3"
+  spec.version      = "1.0.4"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.summary      = "广西心理通用picker"
   spec.homepage     = "https://github.com/jishaowei"

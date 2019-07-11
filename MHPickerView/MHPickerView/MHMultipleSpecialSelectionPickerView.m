@@ -1,30 +1,31 @@
 //
-//  MHMultipleSelectionPickerView.m
+//  MHMultipleSpecialSelectionPickerView.m
 //  MHPickerView
 //
-//  Created by Ji Shaowei on 2019/6/27.
+//  Created by Ji Shaowei on 2019/7/11.
 //  Copyright © 2019 51vision. All rights reserved.
 //
 
-#import "MHMultipleSelectionPickerView.h"
+#import "MHMultipleSpecialSelectionPickerView.h"
 #import <objc/runtime.h>
 #import "MultipleSelectedView.h"
 
 #define UISCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define UISCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface MHMultipleSelectionPickerView() <UITableViewDelegate , UITableViewDataSource>
+@interface MHMultipleSpecialSelectionPickerView ()<UITableViewDelegate , UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableDictionary *recordDic;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) UIView *bgView;
 
 @property (nonatomic, assign) NSInteger selectedRow;
+@property (nonatomic, copy) NSString *specialSelectedName;      //特定单选项目值
 @property (nonatomic, copy) NSString *keyMapper;                //自定义解析Key
 
 @end
 
-@implementation MHMultipleSelectionPickerView
+@implementation MHMultipleSpecialSelectionPickerView
 
 #pragma mark - setter
 
@@ -94,11 +95,12 @@
 
 #pragma mark - Action
 
-- (void)showMHMultipleSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(void(^)(void))cancelBlock {
+- (void)showMHMultipleSpecialSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array specialContain:(NSString *)specialName commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(void(^)(void))cancelBlock {
+    self.specialSelectedName = specialName;
     self.keyMapper = nil;
     self.dataArr = [NSMutableArray array];
     for (NSString * string in array) {
-        MultipleSelectionModel * model = [[MultipleSelectionModel alloc]init];
+        MultipleSpecialSelectionModel * model = [[MultipleSpecialSelectionModel alloc]init];
         model.containString = string;
         model.cellSelected = NO;
         [self.dataArr addObject:model];
@@ -130,7 +132,7 @@
             NSString *rowStr = [NSString stringWithFormat:@"%ld",(long)weakSelf.selectedRow];
             [weakSelf.recordDic setValue:rowStr forKey:tagStr];
             NSMutableArray * commitArr = [NSMutableArray array];
-            for (MultipleSelectionModel * model in weakSelf.dataArr) {
+            for (MultipleSpecialSelectionModel * model in weakSelf.dataArr) {
                 if (model.cellSelected) {
                     [commitArr addObject:model.containString];
                 }
@@ -200,8 +202,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MultipleSelectionModel * model = self.dataArr[indexPath.row];
-
+    MultipleSpecialSelectionModel * model = self.dataArr[indexPath.row];
+    
     static NSString * identifier = @"MultipleSelectedView";
     MultipleSelectedView * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -209,14 +211,41 @@
     }
     cell.titleLab.attributedText = [[NSAttributedString alloc] initWithString:model.containString attributes:_attributes];
     cell.selectedBtn.selected = model.cellSelected;
-
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MultipleSelectionModel * model = self.dataArr[indexPath.row];
-    model.cellSelected = !model.cellSelected;
+    BOOL specialSelected = NO;
+    for(MultipleSpecialSelectionModel * model in self.dataArr)
+    {
+        if ([model.containString isEqualToString:self.specialSelectedName]) {
+            specialSelected = model.cellSelected;
+            break;
+        }
+    }
+    
+    MultipleSpecialSelectionModel * model = self.dataArr[indexPath.row];
+    
+    if (specialSelected) {
+        if ([model.containString isEqualToString:self.specialSelectedName]) {
+            model.cellSelected = NO;
+        } else {
+            //  普通值不可选
+        }
+    } else {
+        if ([model.containString isEqualToString:self.specialSelectedName]) {
+            for(MultipleSpecialSelectionModel * inModel in self.dataArr)
+            {
+                inModel.cellSelected = NO;
+            }
+            model.cellSelected = YES;
+        } else {
+            model.cellSelected = !model.cellSelected;
+        }
+    }
+    
     self.selectedRow = indexPath.row;
     [tableView reloadData];
 }
@@ -225,29 +254,29 @@
 
 
 
-@implementation MultipleSelectionModel
+@implementation MultipleSpecialSelectionModel
 
 @end
 
 
 
-@implementation NSString (MHMultipleSelectionPickerView)
+@implementation NSString (MHMultipleSpecialSelectionPickerView)
 
-@dynamic mufs_key, mufs_int_key;
+@dynamic musfs_key, musfs_int_key;
 
-- (void)setMufs_key:(NSString *)mufs_key {
-    objc_setAssociatedObject(self, @selector(mufs_key), mufs_key, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setMusfs_key:(NSString *)musfs_key {
+    objc_setAssociatedObject(self, @selector(musfs_key), musfs_key, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSString *)mufs_key {
+- (NSString *)musfs_key {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setMufs_int_key:(NSInteger)mufs_int_key {
-    objc_setAssociatedObject(self, @selector(mufs_int_key), @(mufs_int_key), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setMusfs_int_key:(NSInteger)musfs_int_key {
+    objc_setAssociatedObject(self, @selector(musfs_int_key), @(musfs_int_key), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSInteger)mufs_int_key {
+- (NSInteger)musfs_int_key {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
 

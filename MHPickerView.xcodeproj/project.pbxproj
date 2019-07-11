@@ -23,6 +23,7 @@
 		723EA4A122C5AD3800C8E94E /* MH_Public_NoSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49D22C5AD3800C8E94E /* MH_Public_NoSelected@3x.png */; };
 		723EA4A222C5AD3800C8E94E /* MH_Public_Selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 723EA49E22C5AD3800C8E94E /* MH_Public_Selected@3x.png */; };
 		725BCFE422C06ADF00E5376A /* province_data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 725BCFE322C06ADF00E5376A /* province_data.xml */; };
+		72A4C56422D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A4C56322D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.m */; };
 		72FCC41122C89C6300F87D12 /* MH_JSW_AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCC41022C89C6300F87D12 /* MH_JSW_AddressModel.m */; };
 		72FCC41422C89DE500F87D12 /* MH_JSW_AddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCC41322C89DE500F87D12 /* MH_JSW_AddressPickerView.m */; };
 		72FCC41722C89E1800F87D12 /* MH_JSW_ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCC41622C89E1800F87D12 /* MH_JSW_ToolView.m */; };
@@ -75,6 +76,8 @@
 		723EA49D22C5AD3800C8E94E /* MH_Public_NoSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_NoSelected@3x.png"; sourceTree = "<group>"; };
 		723EA49E22C5AD3800C8E94E /* MH_Public_Selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MH_Public_Selected@3x.png"; sourceTree = "<group>"; };
 		725BCFE322C06ADF00E5376A /* province_data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = province_data.xml; sourceTree = "<group>"; };
+		72A4C56222D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMultipleSpecialSelectionPickerView.h; sourceTree = "<group>"; };
+		72A4C56322D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMultipleSpecialSelectionPickerView.m; sourceTree = "<group>"; };
 		72FCC40F22C89C6300F87D12 /* MH_JSW_AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MH_JSW_AddressModel.h; sourceTree = "<group>"; };
 		72FCC41022C89C6300F87D12 /* MH_JSW_AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MH_JSW_AddressModel.m; sourceTree = "<group>"; };
 		72FCC41222C89DE500F87D12 /* MH_JSW_AddressPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MH_JSW_AddressPickerView.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				72FCC41C22C8A08C00F87D12 /* MH_JSW_PickerView.m */,
 				72FCC41E22C8A12900F87D12 /* MH_JSW_PickerManager.h */,
 				72FCC41F22C8A12900F87D12 /* MH_JSW_PickerManager.m */,
+				72A4C56222D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.h */,
+				72A4C56322D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.m */,
 			);
 			path = MHPickerView;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 			files = (
 				72FCC41722C89E1800F87D12 /* MH_JSW_ToolView.m in Sources */,
 				72FCC42022C8A12900F87D12 /* MH_JSW_PickerManager.m in Sources */,
+				72A4C56422D7030F0049E93F /* MHMultipleSpecialSelectionPickerView.m in Sources */,
 				72FCC41D22C8A08C00F87D12 /* MH_JSW_PickerView.m in Sources */,
 				72146A5722BE24ED007A76DF /* ViewController.m in Sources */,
 				72146A6222BE24F0007A76DF /* main.m in Sources */,

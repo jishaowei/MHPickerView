@@ -11,6 +11,7 @@
 #import "MH_JSW_PickerView.h"
 #import "MH_JSW_AddressPickerView.h"
 #import "MHMultipleSelectionPickerView.h"
+#import "MHMultipleSpecialSelectionPickerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,6 +40,8 @@ typedef void (^PickerViewCancelBlock)(void);
 @property (nonatomic, strong) MH_JSW_AddressPickerView * _Nonnull addressPicker;
 
 @property (nonatomic, strong) MHMultipleSelectionPickerView * _Nonnull multipleSelectedPickView;
+
+@property (nonatomic, strong) MHMultipleSpecialSelectionPickerView * _Nonnull multipleSpecialSelectedPickView;
 
 // ================================DatePicker===================================//
 
@@ -135,6 +138,35 @@ typedef void (^PickerViewCancelBlock)(void);
  @param cancelBlock 取消操作block
  */
 - (void)showMultipleSelectedPickerViewWithDataArray:(NSArray<NSString *> *_Nullable)array tag:(NSInteger)tag title:(NSString *_Nullable)title cancelTitle:(NSString *_Nullable)cancelTitle commitTitle:(NSString *_Nullable)commitTitle commitBlock:(void(^_Nullable)(NSArray * _Nullable containArray))commitBlock cancelBlock:(PickerViewCancelBlock _Nullable )cancelBlock;
+
+//===============================MHMultipleSpecialSelectionPickerView===================================//
+
+/**
+ 多选弹框（有特殊列）
+
+ @param array 数据数组
+ @param specialName 特殊列内容
+ @param title 弹框标题
+ @param cancelTitle 取消操作标题
+ @param commitTitle 确认操作标题
+ @param commitBlock 确认操作block
+ @param cancelBlock 取消操作block
+ */
+- (void)showMultipleSpecialSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array specialContain:(NSString *)specialName title:(NSString *)title cancelTitle:(NSString *)cancelTitle commitTitle:(NSString *)commitTitle commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(PickerViewCancelBlock)cancelBlock;
+
+/**
+ 多选弹框（有特殊列）
+ 
+ @param array 数据数组
+ @param specialName 特殊列内容
+ @param tag 标签
+ @param title 弹框标题
+ @param cancelTitle 取消操作标题
+ @param commitTitle 确认操作标题
+ @param commitBlock 确认操作block
+ @param cancelBlock 取消操作block
+ */
+- (void)showMultipleSpecialSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array specialContain:(NSString *)specialName tag:(NSInteger)tag title:(NSString *)title cancelTitle:(NSString *)cancelTitle commitTitle:(NSString *)commitTitle commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(PickerViewCancelBlock)cancelBlock;
 
 //===============================addressPicker===================================//
 

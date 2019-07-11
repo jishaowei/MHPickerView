@@ -55,6 +55,14 @@
     return _multipleSelectedPickView;
 }
 
+- (MHMultipleSpecialSelectionPickerView *)multipleSpecialSelectedPickView
+{
+    if (!_multipleSpecialSelectedPickView) {
+        _multipleSpecialSelectedPickView = [MHMultipleSpecialSelectionPickerView new];
+    }
+    return _multipleSpecialSelectedPickView;
+}
+
 // ================================DatePicker===================================//
 
 - (void)showDatePickerWithTag:(NSInteger)tag commitBlock:(DatePickerCommitBlock)commitBlock cancelBlock:(DatePickerCancelBlock)cancelBlock {
@@ -264,6 +272,43 @@
     }];
     
 }
+
+//===============================MHMultipleSpecialSelectionPickerView===================================//
+
+- (void)showMultipleSpecialSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array specialContain:(NSString *)specialName title:(NSString *)title cancelTitle:(NSString *)cancelTitle commitTitle:(NSString *)commitTitle commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(PickerViewCancelBlock)cancelBlock {
+    self.multipleSelectedPickView.needTag = false;
+    self.multipleSelectedPickView.toolBar.titleBarTitle = title;
+    self.multipleSelectedPickView.toolBar.cancelBarTitle = cancelTitle;
+    self.multipleSelectedPickView.toolBar.commitBarTitle = commitTitle;
+    [self.multipleSpecialSelectedPickView showMHMultipleSpecialSelectedPickerViewWithDataArray:array specialContain:specialName commitBlock:^(NSArray * _Nonnull containArray) {
+        if (commitBlock) {
+            commitBlock(containArray);
+        }
+    } cancelBlock:^{
+        if (cancelBlock) {
+            cancelBlock();
+        }
+    }];
+}
+
+- (void)showMultipleSpecialSelectedPickerViewWithDataArray:(NSArray<NSString *> *)array specialContain:(NSString *)specialName tag:(NSInteger)tag title:(NSString *)title cancelTitle:(NSString *)cancelTitle commitTitle:(NSString *)commitTitle commitBlock:(void(^)(NSArray * containArray))commitBlock cancelBlock:(PickerViewCancelBlock)cancelBlock {
+    
+    self.pickView.needTag = true;
+    self.pickView.showTag = tag;
+    self.pickView.toolBar.titleBarTitle = title;
+    self.pickView.toolBar.cancelBarTitle = cancelTitle;
+    self.pickView.toolBar.commitBarTitle = commitTitle;
+    [self.multipleSpecialSelectedPickView showMHMultipleSpecialSelectedPickerViewWithDataArray:array specialContain:specialName commitBlock:^(NSArray * _Nonnull containArray) {
+        if (commitBlock) {
+            commitBlock(containArray);
+        }
+    } cancelBlock:^{
+        if (cancelBlock) {
+            cancelBlock();
+        }
+    }];
+}
+
 //===============================addressPicker===================================//
 
 - (void)showMOFSAddressPickerWithTitle:(NSString *)title cancelTitle:(NSString *)cancelTitle commitTitle:(NSString *)commitTitle commitBlock:(void(^)(NSString *address, NSString *zipcode))commitBlock cancelBlock:(void(^)(void))cancelBlock {

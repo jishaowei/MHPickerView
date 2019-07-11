@@ -62,7 +62,19 @@
         
     }];
 
+}
 
+- (IBAction)mulSpecialAction:(id)sender {
+    NSMutableArray * containArr = [NSMutableArray array];
+    for (NSInteger i = 0; i < 99; i ++) {
+        [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
+    }
+    NSInteger tag = [[MH_JSW_PickerManager shareManger]automagicTag];
+    [[MH_JSW_PickerManager shareManger]showMultipleSpecialSelectedPickerViewWithDataArray:containArr specialContain:@"3" tag:tag title:@"duoxuans" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSArray * _Nonnull containArray) {
+        NSLog(@"%@",containArray);
+    } cancelBlock:^{
+        
+    }];
 }
 
 @end
