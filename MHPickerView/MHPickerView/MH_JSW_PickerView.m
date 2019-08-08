@@ -123,7 +123,9 @@
         if (commitBlock) {
             NSString *rowStr = [NSString stringWithFormat:@"%ld",(long)weakSelf.selectedRow];
             [weakSelf.recordDic setValue:rowStr forKey:tagStr];
-            commitBlock(weakSelf.dataArr[weakSelf.selectedRow]);
+            if (weakSelf.dataArr.count > 0) {
+                commitBlock(weakSelf.dataArr[weakSelf.selectedRow]);
+            }
         }
     };
 }
@@ -162,7 +164,9 @@
         if (commitBlock) {
             NSString *rowStr = [NSString stringWithFormat:@"%ld",(long)weakSelf.selectedRow];
             [weakSelf.recordDic setValue:rowStr forKey:tagStr];
-            commitBlock(weakSelf.dataArr[weakSelf.selectedRow]);
+            if (weakSelf.dataArr.count > 0) {
+                commitBlock(weakSelf.dataArr[weakSelf.selectedRow]);
+            }
         }
     };
 }
