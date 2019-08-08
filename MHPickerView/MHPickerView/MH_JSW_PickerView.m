@@ -98,7 +98,7 @@
     self.keyMapper = nil;
     self.dataArr = [NSMutableArray arrayWithArray:array];
     [self reloadAllComponents];
-    self.selectedRow = 0;
+    self.selectedRow = self.dataArr.count / 2;
     NSString *tagStr = [NSString stringWithFormat:@"%ld",(long)self.showTag];
     if (self.needTag)
     {
@@ -139,7 +139,7 @@
     }
     
     [self reloadAllComponents];
-    self.selectedRow = 0;
+    self.selectedRow = self.dataArr.count / 2;
     NSString *tagStr = [NSString stringWithFormat:@"%ld",(long)self.showTag];
     if (self.needTag)
     {

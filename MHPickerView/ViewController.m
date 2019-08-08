@@ -29,7 +29,7 @@
 
 - (IBAction)commendBtnAction:(id)sender {
     NSMutableArray * containArr = [NSMutableArray array];
-    for (NSInteger i = 0; i < 3; i ++) {
+    for (NSInteger i = 0; i < 10; i ++) {
         [containArr addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
     [[MH_JSW_PickerManager shareManger]showPickerViewWithDataArray:containArr title:@"biaoti" cancelTitle:@"quxiao" commitTitle:@"queding" commitBlock:^(NSString * _Nonnull string) {
